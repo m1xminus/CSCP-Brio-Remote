@@ -1,0 +1,28 @@
+{
+	"$schema": "../node_modules/@companion-module/base/assets/manifest.schema.json",
+	"type": "connection",
+	"id": "calrec-brio",
+	"name": "calrec-brio",
+	"shortname": "brio",
+	"description": "Control a Calrec Brio mixer over CSCP: faders, mains, aux masters, PFL, aux sends and routing",
+	"version": "0.2.0",
+	"license": "MIT",
+	"repository": "git+https://github.com/example/companion-module-calrec-brio.git",
+	"bugs": "https://github.com/example/companion-module-calrec-brio/issues",
+	"maintainers": [
+		{
+			"name": "Joao",
+			"email": "prideaccokay@gmail.com"
+		}
+	],
+	"runtime": {
+		"type": "node22",
+		"api": "nodejs-ipc",
+		"apiVersion": "0.0.0",
+		"entrypoint": "../src/main.js"
+	},
+	"legacyIds": [],
+	"manufacturer": "Calrec",
+	"products": ["Brio"],
+	"keywords": ["audio", "mixer", "broadcast", "calrec", "cscp"]
+}

@@ -1,0 +1,23 @@
+{
+	"name": "companion-module-calrec-brio",
+	"version": "0.2.0",
+	"main": "src/main.js",
+	"scripts": {
+		"package": "companion-module-build",
+		"test": "node --test"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/example/companion-module-calrec-brio.git"
+	},
+	"engines": {
+		"node": "^22.20 || ^26.5"
+	},
+	"dependencies": {
+		"@companion-module/base": "~2.1.3"
+	},
+	"devDependencies": {
+		"@companion-module/tools": "^3.1.1"
+	}
+}

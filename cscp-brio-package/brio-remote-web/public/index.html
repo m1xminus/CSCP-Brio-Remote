@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSCP Brio Remote</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%230e1012%27/%3E%3Crect x=%2713%27 y=%274%27 width=%276%27 height=%2724%27 rx=%273%27 fill=%27%23333%27/%3E%3Crect x=%279%27 y=%2711%27 width=%2714%27 height=%278%27 rx=%272%27 fill=%27%23f2b134%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="top">
+    <div class="brand"><b>CSCP</b><span>BRIO REMOTE</span></div>
+    <div id="deskinfo" class="deskinfo">no desk</div>
+    <div id="pill" class="pill" data-status="offline"><i></i><span>OFFLINE</span></div>
+    <div class="spacer"></div>
+    <button id="btn-demo" class="tbtn" title="Run against the built-in simulated desk">Demo</button>
+    <button id="btn-lock" class="tbtn" title="Block all control input" aria-pressed="false">Lock</button>
+    <button id="btn-log" class="tbtn" title="Show protocol traffic" aria-pressed="false">Log</button>
+    <button id="btn-settings" class="tbtn" title="Connection and layout settings">Settings</button>
+  </header>
+
+  <nav id="toolbar"></nav>
+
+  <main id="stage">
+    <section id="bay" aria-label="Fader bay"></section>
+    <div id="overlay" hidden></div>
+  </main>
+
+  <section id="logpanel" hidden>
+    <div class="logbar">
+      <b>Protocol traffic</b>
+      <label><input type="checkbox" id="log-hex"> hex</label>
+      <button id="log-clear" class="tbtn small">Clear</button>
+    </div>
+    <div id="logbody"></div>
+  </section>
+
+  <div id="bridge-banner" hidden>Bridge offline &ndash; retrying&hellip;</div>
+
+  <aside id="settings" hidden aria-label="Settings">
+    <div class="sethead"><b>Settings</b><button id="set-close" class="tbtn small">Close</button></div>
+
+    <h3>Desk connection</h3>
+    <div class="field"><label for="set-host">Brio IP address</label><input id="set-host" placeholder="e.g. 10.0.0.50" autocomplete="off"></div>
+    <div class="field"><label for="set-port">CSCP TCP port</label><input id="set-port" type="number" min="1" max="65535" value="49200"></div>
+    <div class="row">
+      <button id="set-connect" class="tbtn primary">Connect</button>
+      <button id="set-disconnect" class="tbtn">Disconnect</button>
+      <button id="set-resync" class="tbtn" title="Re-read every value from the desk">Resync</button>
+    </div>
+    <p class="hint">Remote control must be enabled on the desk (External Controls) and a CSCP port configured there.</p>
+
+    <h3>Fader layout</h3>
+    <div class="field"><label for="set-n">Surface faders controlled over CSCP</label><input id="set-n" type="number" min="1" max="96" value="36"></div>
+    <div class="field"><label for="set-layers">Layers (each with an A and a B sub-layer)</label><input id="set-layers" type="number" min="1" max="12" value="1"></div>
+    <div class="field check"><input id="set-boff" type="checkbox"><label for="set-boff">&ldquo;B layer off&rdquo; is enabled on the desk</label></div>
+    <p class="hint">Brio 36: 36 faders, 1 layer, A/B. They are shown in divisions of 12 (1&ndash;12, 13&ndash;24, 25&ndash;36). CSCP does not report the surface size, so set it here. Hover a strip to see its protocol fader number.</p>
+
+    <h3>Buttons</h3>
+    <div class="field"><label for="set-cut">Cut button style</label>
+      <select id="set-cut"><option value="cut">CUT (lit red when cut)</option><option value="on">ON (lit green when audio on)</option></select>
+    </div>
+  </aside>
+
+  <script src="/shared/levels.js"></script>
+  <script src="/shared/model.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "cscp-brio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Remote control and fader-bay GUI for the Calrec Brio over CSCP",
+  "main": "src/core/index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "demo": "node src/server.js --mock --wiggle",
+    "mock": "node src/mock/run.js",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": { "ws": "^8.18.0" },
+  "devDependencies": { "jsdom": "^25.0.0" }
+}
